@@ -1,6 +1,10 @@
 # doghub
 
-Monitor staled Issue and PR on Gitub for your project.
+Monitor staled Issue and PR on Gitub for your differernts projects
+
+# Status:
+
+working in progress
 
 # Configuration:
 
