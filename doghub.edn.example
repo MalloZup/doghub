@@ -1,0 +1,27 @@
+{
+
+  :github-config {
+   :username "opensuse" 
+   :token "token"
+  }
+
+  ;; a list of repository of github where you want to monitor issue and prs
+  :repos ["MalloZup/missile", "MalloZup/saint-build"]
+
+  :issue-days 10 ;; this is the number of day you will tollerate for an issue to be inactive
+
+  :prs-days 2 ;; this is same as issue, but only for PRS
+
+
+ ;; by default doghub will create a comment on the issue or PR. you can customize the prefix message.
+
+
+ :prefix-msg "your pr/issue is old, can you close or update it?"
+
+
+ ;; the message compose of prefix-msg + std-msg.  std-msg will be " the pr/issue is old then 10/X days. 
+  
+ ;; the bot will just update the comments.  RATE-LIMITING will be logged in case of exceeded
+
+
+}
