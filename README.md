@@ -1,6 +1,7 @@
 # doghub
 
-Monitor staled Issue and PR on Gitub for your differernts projects
+Doghub is a Stalebot.
+It monitor stale Issues and PR on GitHub for your different projects in a private and centralized manner.
 
 # Rationale:
 
@@ -12,6 +13,8 @@ Doghub has 2 goals in mind:
 
 - 2) offer a full centralized control for list of repo you want to monitor.
 
+
+Also it is data-driven, functional and concurrent by design.
 
 # Quickstart
 
