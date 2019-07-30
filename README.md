@@ -47,10 +47,12 @@ Also it is data-driven, functional and concurrent by design.
 ```java -jar doghub-VERSION-standalone.jar```
 
 The configuration file should be on the same dir where you start the daemon; 
-otherwise use the ENV variable CONFIG_FILE_PATH for setup a config file from other locations
-
+otherwise use the ENV variable `CONFIG_FILE_PATH` for setup a config file from other locations
 
 
 # Where is this project used?
 
-- @SUSE (we use it as reminder for issues and prs)
+- @SUSE/openSUSE (we use it as reminder for issues and prs)
+
+If you use doghub, feel free to add a PR of your project
+
