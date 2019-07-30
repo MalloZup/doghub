@@ -52,7 +52,5 @@ otherwise use the ENV variable `CONFIG_FILE_PATH` for setup a config file from o
 
 # Where is this project used?
 
-- @SUSE/openSUSE (we use it as reminder for issues and prs)
-
-If you use doghub, feel free to add a PR of your project
+If you use doghub, feel free to add a PR of your project!
 
