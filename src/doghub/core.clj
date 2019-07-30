@@ -9,26 +9,21 @@
             [cheshire.core :refer :all])
   (:gen-class))
 
-(defn comment-issue [issue]
-  (println issue))
+(def github-options {:all-pages true
+                      :oauth-token (get-in (c/get-config) [:github-config :token] )})
 
-(defn iterate-over-issues []
- ;; itereate over all repositories from user
- (let [{:keys [repositories issue-days]} (c/get-config)]  
-   (doseq [repo repositories]
-    (log/info (str "getting issues for repo: " repo))
-    ;; get all issues from a single repo
-    (doseq [issue (get-issues repo)] 
-       (log/info (str "comparing issue with tolleration time(days) :" issue-days))
-       ;; check if issue is older then input days
-       (when (compare-issue-with-tdays (:updated_at issue) issue-days) (comment-issue issue))))))
+(defn comment-issue [full-repo issue prefix-msg options issue-days]
+  (let [user (first (str/split full-repo #"/"))
+       repo (last (str/split full-repo #"/"))
+       text (str prefix-msg " " "issue older then " issue-days "days. Please update the issue or close it")]
+  (log/info (str "commenting old issue from repo:" repo " " (:number issue) " " (:url issue)))
+  (i/create-comment user repo (:number issue) text options)))
 
 (defn get-issues [full-repo]
  "get all issues given a repo"
  (let [user (first (str/split full-repo #"/"))
        repo (last (str/split full-repo #"/"))]
- (i/issues user repo {:all-pages true
-                      :oauth-token (get-in (c/get-config) [:github-config :token] )})))
+ (i/issues user repo github-options)))
 
 
 
@@ -42,11 +37,30 @@
   ;; if it true, then write a comment to this issue
   ))
 
+(defn comment-all-old-issues []
+ ;; itereate over all repositories from user
+ (let [{:keys [repositories issue-days prefix-msg]} (c/get-config)]  
+   (doseq [repo repositories]
+    (log/info (str "getting issues for repo: " repo))
+    ;; get all issues from a single repo
+    (doseq [issue (get-issues repo)] 
+       (log/info (str "comparing issue with tolleration time(days) :" issue-days))
+       ;; check if issue is older then input days
+       (when (compare-issue-with-tdays (:updated_at issue) issue-days)
+             (future (comment-issue repo issue prefix-msg github-options issue-days)))))))
 
+(defn comment-all-old-ors []
+"comment all old prs"
+ (println "to implement")
+)
 
 (defn -main []
- ;; deamon mode todo
- (println "main")
+ (while true
+   (comment-all-old-issues)
+   ;; todo: comment-all-old-prs (implenment that)
+   (log/info "sleeping for 5 minutes")
+   (Thread/sleep (* 5 60 1000))
+ )
 )
 
 ;;  (.getTime (java.util.Date.))

@@ -7,4 +7,5 @@
                  [org.clojure/tools.logging "0.4.1"]
                  [clj-time "0.15.0"]
                  [cheshire "5.8.1"]]
+  :main doghub.core
   :repl-options {:init-ns doghub.core})
