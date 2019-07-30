@@ -9,10 +9,19 @@
             [cheshire.core :refer :all])
   (:gen-class))
 
+(defn comment-issue [issue]
+  (println issue))
 
-;;  (:updated_at (first data))
-
-;; "2019-04-05T18:23:22Z"
+(defn iterate-over-issues []
+ ;; itereate over all repositories from user
+ (let [{:keys [repositories issue-days]} (c/get-config)]  
+   (doseq [repo repositories]
+    (log/info (str "getting issues for repo: " repo))
+    ;; get all issues from a single repo
+    (doseq [issue (get-issues repo)] 
+       (log/info (str "comparing issue with tolleration time(days) :" issue-days))
+       ;; check if issue is older then input days
+       (when (compare-issue-with-tdays (:updated_at issue) issue-days) (comment-issue issue))))))
 
 (defn get-issues [full-repo]
  "get all issues given a repo"
@@ -25,11 +34,11 @@
 
 (def datetime-form (f/formatters :date-time-no-ms))
 
-(defn parse-data [issue-time tolleration-datetime]
-  "tolleration-datetime is actual timemestamp - the days user give as tolleration"
-  (time/before? (f/parse datetime-form "2019-02-05T18:23:22Z") ;; issue-datetm
-               (f/parse datetime-form "2019-04-05T18:23:23Z") ;; tolleration-time
-
+(defn compare-issue-with-tdays [issue-time tolleration-days]
+  "compare issue time with tollerated one, return true if issue-time is older 
+  in this case it means write a comment on the issue/pr"
+  (time/before? (f/parse datetime-form issue-time) ;; issue-datetm
+               (time/minus (time/now) (time/days tolleration-days)) ;; tolleration-time
   ;; if it true, then write a comment to this issue
   ))
 
