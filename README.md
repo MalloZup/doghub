@@ -53,5 +53,7 @@ otherwise use the ENV variable `CONFIG_FILE_PATH` for setup a config file from o
 
 # Where is this project used?
 
+- @SUSE Linux
+
 If you use doghub, feel free to add a PR of your project!
 
