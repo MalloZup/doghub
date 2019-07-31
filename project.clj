@@ -1,4 +1,4 @@
-(defproject doghub "0.1.0"
+(defproject doghub "0.2.0"
   :description "monitor GitHub staled PRs and issues"
   :url "git@github.com:MalloZup/doghub.git"
   :license {:name "GPL"}
