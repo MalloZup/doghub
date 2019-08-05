@@ -1,6 +1,11 @@
 # Change Log
 
-# 0.2.0
+# 0.3.0:
+
+- add organisations recursive support
+  The only limit is rate-limiting
+
+# 0.2.0:
 
 ## Features:
 
