@@ -43,7 +43,9 @@ It monitor stale Issues and PR on GitHub for your different projects in a privat
 
 ```
 
-Instead of a list of repositories you can use a list of organisations.
+Instead of a list of repositories you can use a list of organisations. see the `edn.example`config file
+
+
 
 2) start the daemon with:
 
