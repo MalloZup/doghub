@@ -5,6 +5,11 @@
 - add organisations recursive support
   The only limit is rate-limiting
 
+example: if user give foo, bar as organisations and foo contain 5 repo and bar 2,
+ doghub will go through all the 5 repo of foo searching for stale issue/prs and to the same later for bar
+
+(if rate-limiting doesn't prevent it. But every hour it will restored)
+
 # 0.2.0:
 
 ## Features:
