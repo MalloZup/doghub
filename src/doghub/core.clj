@@ -84,9 +84,9 @@
       (log/info (str "checking org: " org))
       (let [repos (o/repos org github-options)]
         (doseq [repo repos]
-          (log/info (str "checking repo" repo))
-          (future (comment-all-old-issues (str org "/" repo )))
-          (future (comment-all-old-prs (str org "/ repo"))))))))
+          (log/info (str "checking repo" (:name repo)))
+          (future (comment-all-old-issues (str org "/" (:name repo))))
+          (future (comment-all-old-prs (str org "/" (:name repo)))))))))
 
 
 (defn listof-repo-monitoring []

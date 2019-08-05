@@ -4,15 +4,20 @@
      :token "my-token"
   }
 
-  ;; a list of repository of github where you want to monitor issue and prs
-  :repositories ["SUSE/spacewalk"]
+  ;; SUPPORTED targets
 
-  :issue-days 130 ;; this is the number of day you will tollerate for an issue to be inactive
+  ;; choose either organisation or repo lists
 
-  :prs-days 2 ;; tollerations days for Pull-request. PR older then this will be take action.
+  ;; 1) organisation
 
+  :organisations ["nrepl", "clojure-emacs"]
 
+  ;; 2) a list of repository of github where you want to monitor issue and prs
+ ;; :repositories ["SUSE/ha-sap-terraform-deployments"]
 
+  :issue-days 450 ;; this is the number of day you will tollerate for an issue to be inactive
+
+  :prs-days 200 ;; tollerations days for Pull-request. PR older then this will be take action. By default only commenting
 
 
  ;; by default doghub will create a comment on the issue or PR. you can customize the prefix message.

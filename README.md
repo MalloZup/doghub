@@ -41,6 +41,9 @@ It monitor stale Issues and PR on GitHub for your different projects in a privat
 
 }
 
+Instead of a list of repositories you can use a list of organisations.
+
+
 ```
 
 2) start the daemon with:
@@ -53,7 +56,7 @@ otherwise use the ENV variable `CONFIG_FILE_PATH` for setup a config file from o
 
 # Where is this project used?
 
-- @SUSE Linux
+- 
 
 If you use doghub, feel free to add a PR of your project!
 
