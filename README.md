@@ -6,7 +6,16 @@ It monitor stale Issues and PR on GitHub for your different projects in a privat
 
 - 1) allow maintainers  to be indipendent, don't allow some X service in their repo. (instead use token and manage yourself the daemon on your server)
 
-- 2) offer a full centralized control for list of repo you want to monitor.
+- 2) offer a full centralized control
+
+
+# Main features:
+
+Doghub currently will comment on stale Issue and PRs. You can configure the tolleration of days for PRs and Issue.
+
+(In future a custom handler will supported, so user could decide which action to perform for staled issues (closing, commenting, label etc etc).
+
+Doghub works either with a list of reposiotories, or with a list of organisation ( the latter will englobe lot of repo, the first is more precise)
 
 
 # Quickstart
