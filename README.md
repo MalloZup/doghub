@@ -2,23 +2,21 @@
 
 Doghub monitors stale Issues and Pull Requests for your different Github projects in a private and centralized manner. You can use doghub for both your personal and professional projects.
 
-# Table of Contents:
+# Table of Contents
 * [Why use doghub?](#why-use-doghub)
 * [Main features](#main-features)
 * [Quickstart](#quickstart)
 
 ## Why use doghub?
 
-- Allows maintainers to be independent without the need for an external service in their repo. (instead you can use a token and manage the daemon yourself on your server)
+- Allows maintainers to be independent without the need for an external service in their repo (instead you can use a token and manage the daemon yourself on your server)
 
 - Offers full centralized control over your project(s)
 
 
 ## Main features:
 
-1. Doghub will comment on stale Issues and PRs. You can configure a limit for the number of days a PR or an issue can remain inactive on the repo.
-
-(At present, this is the only feature in doghub. In the future, there is a plan to support a custom handler, which will let the user decide to apply a specific action for stale issues (e.g., close, comment, label etc.))
+1. Doghub will comment on stale Issues and PRs. You can configure a limit for the number of days a PR or an issue can remain inactive on the repo. (At present, this is the only feature in doghub. In the future, there is a plan to support a custom handler, which will let the user decide to apply a specific action for stale issues (e.g., close, comment, label etc.))
 
 2. Doghub can work either with a list of repositories or a list of organisations. (An organisation can own multiple repositories, while a repository relates to one project)
 
